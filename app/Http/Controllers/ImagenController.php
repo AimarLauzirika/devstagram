@@ -15,7 +15,7 @@ class ImagenController extends Controller
         $imagenServidor = Image::make($imagen);
         $imagenServidor->fit(1000, 1000);
         if (!file_exists(public_path('uploads'))) {
-            mkdir(public_path('uploads'), 0777, true);
+            mkdir(public_path('uploads'), 0755, true);
         }
         $imagenPath = public_path('uploads') . '/' . $nombreImagen;
         $imagenServidor->save($imagenPath);
